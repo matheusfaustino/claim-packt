@@ -26,6 +26,7 @@ $form = $crawlerGoutte->selectButton('Login')->form([
 $submitted = $clientGoutte->submit($form);
 
 $link = $submitted->filter('a.twelve-days-claim')->attr('href');
+echo trim($submitted->filter('div.dotd-title')->eq(0)->text())."\n";
 
 // echo '<pre>';
 // print_r($link);
@@ -36,4 +37,5 @@ $claimRest = $clientGoutte->request('GET', $link);
 
 // echo $link->attr('href');
 // echo $submitted;
-echo $claimRest->html();
+//echo $claimRest->html();
+echo "claimed\n";
